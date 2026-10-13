@@ -24,5 +24,10 @@ namespace pendu
         {
             InitializeComponent();
         }
+
+        private void TB_Display_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pendu"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Foreground="White">
+
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\SLAB47\Downloads\hollow knight doc display.png"
+                    Stretch="UniformToFill"/>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,20 +20,22 @@
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
+
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
         </Grid>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                
+
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -36,49 +44,50 @@
                     <RowDefinition Height="*"/>
 
                 </Grid.RowDefinitions>
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="46*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="71*"/>
+                    <ColumnDefinition Width="58*"/>
+                    <ColumnDefinition Width="58*"/>
                     <ColumnDefinition Width="35"/>
 
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="0" Grid.Column="1" Name="BTN_A" Content="A" />
-                <Button Grid.Row="0" Grid.Column="2" Name="BTN_B" Content="B" />
-                <Button Grid.Row="0" Grid.Column="3" Name="BTN_C" Content="C" />
-                <Button Grid.Row="0" Grid.Column="4" Name="BTN_D" Content="D" />
-                <Button Grid.Row="0" Grid.Column="5" Name="BTN_E" Content="E" />
-                <Button Grid.Row="0" Grid.Column="6" Name="BTN_F" Content="F" />
-                
-                <Button Grid.Row="1" Grid.Column="1" Name="BTN_G" Content="G" />
-                <Button Grid.Row="1" Grid.Column="2" Name="BTN_H" Content="H" />
-                <Button Grid.Row="1" Grid.Column="3" Name="BTN_I" Content="I" />
-                <Button Grid.Row="1" Grid.Column="4" Name="BTN_J" Content="J" />
-                <Button Grid.Row="1" Grid.Column="5" Name="BTN_K" Content="K" />
-                <Button Grid.Row="1" Grid.Column="6" Name="BTN_L" Content="L" />
-                
-                <Button Grid.Row="2" Grid.Column="1" Name="BTN_M" Content="M" />
-                <Button Grid.Row="2" Grid.Column="2" Name="BTN_N" Content="N" />
-                <Button Grid.Row="2" Grid.Column="3" Name="BTN_O" Content="O" />
-                <Button Grid.Row="2" Grid.Column="4" Name="BTN_P" Content="P" />
-                <Button Grid.Row="2" Grid.Column="5" Name="BTN_Q" Content="Q" />
-                <Button Grid.Row="2" Grid.Column="6" Name="BTN_R" Content="R" />
-                
-                <Button Grid.Row="3" Grid.Column="1" Name="BTN_S" Content="S" />
-                <Button Grid.Row="3" Grid.Column="2" Name="BTN_T" Content="T" />
-                <Button Grid.Row="3" Grid.Column="3" Name="BTN_U" Content="U" />
-                <Button Grid.Row="3" Grid.Column="4" Name="BTN_V" Content="V" />
-                <Button Grid.Row="3" Grid.Column="5" Name="BTN_W" Content="W" />
-                <Button Grid.Row="3" Grid.Column="6" Name="BTN_X" Content="X" />
+                <Button Grid.Row="0" Grid.Column="1" Name="BTN_A" Content="A" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="2" Name="BTN_B" Content="B" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="3" Name="BTN_C" Content="C" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="0,0,2,0"/>
+                <Button Grid.Row="0" Grid.Column="4" Name="BTN_D" Content="D" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="3" Margin="1,0,57,0"/>
+                <Button Grid.Row="0" Grid.Column="6" Name="BTN_E" Content="E" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="2,0,57,0"/>
+                <Button Grid.Row="0" Grid.Column="6" Name="BTN_F" Content="F" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="57,0,0,0"/>
 
-                <Button Grid.Row="4" Grid.Column="1" Name="BTN_Y" Content="Y" />
-                <Button Grid.Row="4" Grid.Column="2" Name="BTN_Z" Content="Z" />
+                <Button Grid.Row="1" Grid.Column="1" Name="BTN_G" Content="G" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="2" Name="BTN_H" Content="H" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="3" Name="BTN_I" Content="I" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="0,0,2,0"/>
+                <Button Grid.Row="1" Grid.Column="4" Name="BTN_J" Content="J" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="3" Margin="1,0,57,0"/>
+                <Button Grid.Row="1" Grid.Column="6" Name="BTN_K" Content="K" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="2,0,57,0"/>
+                <Button Grid.Row="1" Grid.Column="6" Name="BTN_L" Content="L" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="57,0,0,0"/>
+
+                <Button Grid.Row="2" Grid.Column="1" Name="BTN_M" Content="M" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="2" Name="BTN_N" Content="N" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="3" Name="BTN_O" Content="O" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="0,0,2,0"/>
+                <Button Grid.Row="2" Grid.Column="4" Name="BTN_P" Content="P" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="3" Margin="1,0,57,0"/>
+                <Button Grid.Row="2" Grid.Column="6" Name="BTN_Q" Content="Q" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="2,0,57,0"/>
+                <Button Grid.Row="2" Grid.Column="6" Name="BTN_R" Content="R" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="57,0,0,0"/>
+
+                <Button Grid.Row="3" Grid.Column="1" Name="BTN_S" Content="S" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="2" Name="BTN_T" Content="T" Background="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="3" Name="BTN_U" Content="U" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="0,0,2,0"/>
+                <Button Grid.Row="3" Grid.Column="4" Name="BTN_V" Content="V" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="3" Margin="1,0,57,0"/>
+                <Button Grid.Row="3" Grid.Column="6" Name="BTN_W" Content="W" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="2,0,57,0"/>
+                <Button Grid.Row="3" Grid.Column="6" Name="BTN_X" Content="X" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="57,0,0,0"/>
+
+                <Button Grid.Row="4" Grid.Column="3" Name="BTN_Y" Content="Y" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="2" Margin="0,0,2,0"/>
+                <Button Grid.Row="4" Grid.Column="4" Name="BTN_Z" Content="Z" Background="Transparent" Click="BTN_Click" Grid.ColumnSpan="3" Margin="1,0,57,0"/>
             </Grid>
 
         </Grid>
@@ -88,8 +97,7 @@
             </Grid.ColumnDefinitions>
 
         </Grid>
-        <TextBox Grid.Row="0" Name="TB_Display"></TextBox>
 
     </Grid>
-    
+
 </Window>
