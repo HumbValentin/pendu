@@ -9,10 +9,22 @@
         Foreground="White">
 
     <Grid>
+
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\pauvcon\Downloads\hollow knight doc display.png"
-                    Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Resource/BackGround/1_Back_Hollow.png"
+                Stretch="UniformToFill"
+                AlignmentX="Center"
+                AlignmentY="Center"/>
         </Grid.Background>
+
+        <!--<Image x:Name="ImageHollow"
+           Source="/Resource/BackGround/1_Back_Hollow.png"
+           Stretch="UniformToFill"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"/>-->
+        <!--<Grid.Background>
+            <Image x:Name="ImageHollow" HorizontalAlignment="Center" VerticalAlignment="Center" Height="236" Source="/Resource/BackGround/1_Back_Hollow.png"/>
+        </Grid.Background>-->
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
