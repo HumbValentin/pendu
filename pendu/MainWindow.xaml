@@ -17,6 +17,92 @@
                 AlignmentY="Center"/>
         </Grid.Background>
 
+        <Grid.Resources>
+            <Style x:Key="GreenButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#0A636B"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="BorderBrush" Value="#81A198"/>
+                <Setter Property="BorderThickness" Value="4"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                                <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#3CB371"/>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#1E5631"/>
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" Value="#808080"/>
+                                    <Setter Property="Foreground" Value="#D3D3D3"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <Style x:Key="ValidStyle" TargetType="Button">
+                <Setter Property="Background" Value="#D7D7D9"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="BorderBrush" Value="#81A198"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                                    <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#3CB371"/>
+                                    </Trigger>
+
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#1E5631"/>
+                                    </Trigger>
+
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Background" Value="#808080"/>
+                                        <Setter Property="Foreground" Value="#D3D3D3"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            
+            
+            </Grid.Resources>
+        
+
+
+
+
         <!--<Image x:Name="ImageHollow"
            Source="/Resource/BackGround/1_Back_Hollow.png"
            Stretch="UniformToFill"
@@ -67,42 +153,44 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="32"/>
-
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="0" Grid.Column="1" Name="BTN_A" Content="A" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="0" Grid.Column="2" Name="BTN_B" Content="B" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="0" Grid.Column="3" Name="BTN_C" Content="C" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="0" Grid.Column="4" Name="BTN_D" Content="D" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="0" Grid.Column="5" Name="BTN_E" Content="E" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="0" Grid.Column="6" Name="BTN_F" Content="F" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="1" Name="BTN_A" Content="A" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="2" Name="BTN_B" Content="B" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="3" Name="BTN_C" Content="C" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="4" Name="BTN_D" Content="D" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="5" Name="BTN_E" Content="E" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="0" Grid.Column="6" Name="BTN_F" Content="F" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
 
-                <Button Grid.Row="1" Grid.Column="1" Name="BTN_G" Content="G" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="1" Grid.Column="2" Name="BTN_H" Content="H" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="1" Grid.Column="3" Name="BTN_I" Content="I" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="1" Grid.Column="4" Name="BTN_J" Content="J" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="1" Grid.Column="5" Name="BTN_K" Content="K" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="1" Grid.Column="6" Name="BTN_L" Content="L" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="1" Name="BTN_G" Content="G" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="2" Name="BTN_H" Content="H" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="3" Name="BTN_I" Content="I" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="4" Name="BTN_J" Content="J" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="5" Name="BTN_K" Content="K" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="1" Grid.Column="6" Name="BTN_L" Content="L" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
 
-                <Button Grid.Row="2" Grid.Column="1" Name="BTN_M" Content="M" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="2" Grid.Column="2" Name="BTN_N" Content="N" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="2" Grid.Column="3" Name="BTN_O" Content="O" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="2" Grid.Column="4" Name="BTN_P" Content="P" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="2" Grid.Column="5" Name="BTN_Q" Content="Q" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="2" Grid.Column="6" Name="BTN_R" Content="R" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="1" Name="BTN_M" Content="M" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="2" Name="BTN_N" Content="N" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="3" Name="BTN_O" Content="O" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="4" Name="BTN_P" Content="P" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="5" Name="BTN_Q" Content="Q" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="2" Grid.Column="6" Name="BTN_R" Content="R" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
 
-                <Button Grid.Row="3" Grid.Column="1" Name="BTN_S" Content="S" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="3" Grid.Column="2" Name="BTN_T" Content="T" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="3" Grid.Column="3" Name="BTN_U" Content="U" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="3" Grid.Column="4" Name="BTN_V" Content="V" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="3" Grid.Column="5" Name="BTN_W" Content="W" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="3" Grid.Column="6" Name="BTN_X" Content="X" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="1" Name="BTN_S" Content="S" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="2" Name="BTN_T" Content="T" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="3" Name="BTN_U" Content="U" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="4" Name="BTN_V" Content="V" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="5" Name="BTN_W" Content="W" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="3" Grid.Column="6" Name="BTN_X" Content="X" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
 
-                <Button Grid.Row="4" Grid.Column="4" Name="BTN_Y" Content="Y" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
-                <Button Grid.Row="4" Grid.Column="5" Name="BTN_Z" Content="Z" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_Click"/>
+                <Button Grid.Row="4" Grid.Column="4" Name="BTN_Y" Content="Y" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="4" Grid.Column="5" Name="BTN_Z" Content="Z" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
             </Grid>
 
+
+
         </Grid>
+
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -120,7 +208,7 @@
                     <RowDefinition Height="52"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="1" Grid.Column="1" Name="BTN_Valid" Content="Valid" BorderBrush="Transparent" Foreground="Transparent" Background="Transparent" Click="BTN_Valid_Click"/>
+                <Button Grid.Row="1" Grid.Column="1" Name="BTN_Valid" Content="Valid" Style="{StaticResource ValidStyle}" Click="BTN_Valid_Click"/>
 
             </Grid>
 
@@ -134,7 +222,10 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="1" Grid.Column="1" Name="BTN_Compte" Content="Essai" BorderBrush="Transparent" Foreground="White" Background="Transparent" Click="BTN_Compte_Click"/>
+                <Button Grid.Row="1" Grid.Column="1" Name="BTN_Compte" Content="Essai" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" Click="BTN_Compte_Click"/>
+                <TextBox Grid.Column="0" Name="TB_Compte" Text="0" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" FontSize="20" FontWeight="Bold" IsReadOnly="True" Margin="0,21,0,10" Grid.RowSpan="2" TextChanged="TB_Compte_TextChanged"/>
+
+
 
             </Grid>
 
