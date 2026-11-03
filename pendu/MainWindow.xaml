@@ -56,49 +56,49 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            
+
             <Style x:Key="ValidStyle" TargetType="Button">
                 <Setter Property="Background" Value="#D7D7D9"/>
-                    <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="FontSize" Value="20"/>
-                    <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="BorderBrush" Value="#81A198"/>
-                    <Setter Property="BorderThickness" Value="4"/>
-                    <Setter Property="Cursor" Value="Hand"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}"
+                <Setter Property="BorderThickness" Value="4"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="20">
-                                    <ContentPresenter
+                                <ContentPresenter
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"/>
-                                </Border>
+                            </Border>
 
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#3CB371"/>
-                                    </Trigger>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#3CB371"/>
+                                </Trigger>
 
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="Background" Value="#1E5631"/>
-                                    </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#1E5631"/>
+                                </Trigger>
 
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Background" Value="#808080"/>
-                                        <Setter Property="Foreground" Value="#D3D3D3"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            
-            
-            </Grid.Resources>
-        
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" Value="#808080"/>
+                                    <Setter Property="Foreground" Value="#D3D3D3"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+        </Grid.Resources>
+
 
 
 
@@ -215,15 +215,18 @@
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="68"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="1" Grid.Column="1" Name="BTN_Compte" Content="Essai" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" Click="BTN_Compte_Click"/>
-                <TextBox Grid.Column="0" Name="TB_Compte" Text="0" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" FontSize="20" FontWeight="Bold" IsReadOnly="True" Margin="0,21,0,10" Grid.RowSpan="2" TextChanged="TB_Compte_TextChanged"/>
+                <Button Grid.Column="1" Name="BTN_Compte" Content="Essai :" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" Click="BTN_Compte_Click" Margin="0,42,0,0" Grid.RowSpan="2"/>
+                <TextBox Grid.Column="0" Name="TB_Display" BorderBrush="Transparent" Foreground="SaddleBrown" Background="Transparent" FontSize="30" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" IsReadOnly="True" Grid.RowSpan="2" Height="70" Margin="-51,0,0,0"/>
+                <TextBox Grid.Column="1" Name="TB_Compte" Text="10" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" Margin="33,14,2,0" Grid.Row="1" Grid.ColumnSpan="3"/>
 
 
 
