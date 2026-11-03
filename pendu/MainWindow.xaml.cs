@@ -29,5 +29,26 @@ namespace pendu
         {
 
         }
+
+        private void BTN_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            String btnContent = btn.Content.ToString();
+            btn.IsEnabled = false;
+        }
+
+        private void BTN_Valid_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            String btnContent = btn.Content.ToString();
+            btn.IsEnabled = false;
+        }
+
+        private void BTN_Compte_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            String btnContent = btn.Content.ToString();
+            btn.IsEnabled = false;
+        }
     }
 }
