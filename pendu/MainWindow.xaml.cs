@@ -73,6 +73,11 @@ namespace pendu
             {
                 TB_Compte.Text = (Int32.Parse(TB_Compte.Text) - 1).ToString();
             }
+            if (TB_Display.Text.Replace(" ", "") == motAleatoire)
+            {
+                MessageBox.Show("Vous avez gagné !");
+                Application.Current.Shutdown();
+            }
             if (TB_Compte.Text == "0")
             {
                 MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
