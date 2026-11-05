@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800"
         Foreground="White">
 
-    <Grid>
+    <Grid x:Name="MainGrid">
 
         <Grid.Background>
             <ImageBrush ImageSource="/Resource/BackGround/1_Back_Hollow.png"

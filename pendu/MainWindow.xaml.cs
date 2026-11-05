@@ -80,11 +80,17 @@ namespace pendu
             }
             if (TB_Compte.Text == "0")
             {
+                ImageBrush nouveauBackground = new ImageBrush();
+
+                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/2_Back_Hollow.png"));
+
+                nouveauBackground.Stretch = Stretch.UniformToFill;
+
+                MainGrid.Background = nouveauBackground;
+
                 MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
-                Application.Current.Shutdown();
             }
         }
-
         private void BTN_Valid_Click(object sender, RoutedEventArgs e)
         {
 
