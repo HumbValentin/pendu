@@ -13,21 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace pendu
 {
+    
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool partieTerminee = false;
 
-        List<string> mots = new List<string>()
-        {
-            "ORDINATEUR", "SOURIS", "CLAVIER", "ECRAN",
-            "IMPRIMANTE", "TABLETTE", "TELEPHONE",
-            "LOGICIEL", "APPLICATION", "RESEAU"
-        };
+        List<string> mots = new List<string>();
 
         Random random = new Random();
 
@@ -40,7 +38,29 @@ namespace pendu
         {
             InitializeComponent();
 
+            string chemin = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resource", "List", "Hollow_Mots.txt");
+
+            if (!File.Exists(chemin))
+            {
+                MessageBox.Show("Le fichier Hollow_Mots.txt est introuvable !");
+                Application.Current.Shutdown();
+                return;
+            }
+
+            mots = File.ReadAllLines(chemin)
+                       .Where(m => !string.IsNullOrWhiteSpace(m))
+                       .Select(m => m.Trim().ToUpper())
+                       .ToList();
+
+            if (mots.Count == 0)
+            {
+                MessageBox.Show("Le fichier ne contient aucun mot !");
+                Application.Current.Shutdown();
+                return;
+            }
+
             motAleatoire = mots[random.Next(mots.Count)];
+
 
             lenght = motAleatoire.Length;
 
@@ -48,8 +68,6 @@ namespace pendu
             {
                 TB_Display.Text += "_ ";
             }
-
-
         }
 
 
@@ -57,9 +75,13 @@ namespace pendu
         {
             Button btn = sender as Button;
             String btnContent = btn.Content.ToString();
+
             btn.IsEnabled = false;
+
             if (motAleatoire.Contains(btnContent))
             {
+                if (partieTerminee)
+                    return;
                 for (int i = 0; i < lenght; i++)
                 {
                     if (motAleatoire[i].ToString() == btnContent)
@@ -77,6 +99,8 @@ namespace pendu
             {
                 MessageBox.Show("Vous avez gagné !");
                 Application.Current.Shutdown();
+
+                partieTerminee = true;
             }
             if (TB_Compte.Text == "0")
             {
@@ -88,12 +112,10 @@ namespace pendu
 
                 MainGrid.Background = nouveauBackground;
 
+                partieTerminee = true;
+
                 MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
             }
-        }
-        private void BTN_Valid_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void BTN_Compte_Click(object sender, RoutedEventArgs e)

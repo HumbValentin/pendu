@@ -100,5 +100,8 @@
   <ItemGroup>
     <Resource Include="Resource\BackGround\1_Back_Hollow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\List\Hollow_Mots.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
