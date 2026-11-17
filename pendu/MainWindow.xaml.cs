@@ -47,10 +47,15 @@ namespace pendu
                 return;
             }
 
-            mots = File.ReadAllLines(chemin)
+            while (motAleatoire.Lenght > 9)
+            {
+                            mots = File.ReadAllLines(chemin)
                        .Where(m => !string.IsNullOrWhiteSpace(m))
                        .Select(m => m.Trim().ToUpper())
                        .ToList();
+
+            }
+
 
             if (mots.Count == 0)
             {
@@ -59,8 +64,8 @@ namespace pendu
                 return;
             }
 
-            motAleatoire = mots[random.Next(mots.Count)];
 
+            motAleatoire = mots[random.Next(mots.Count)];
 
             lenght = motAleatoire.Length;
 
@@ -165,6 +170,9 @@ namespace pendu
             btn.IsEnabled = false;
         }
 
+        private void BTN_Relaunch_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
