@@ -102,7 +102,7 @@ namespace pendu
 
                 partieTerminee = true;
             }
-            if (TB_Compte.Text == "0")
+            if (TB_Compte.Text == "5")
             {
                 ImageBrush nouveauBackground = new ImageBrush();
 
@@ -112,11 +112,51 @@ namespace pendu
 
                 MainGrid.Background = nouveauBackground;
 
+            }
+
+            if (TB_Compte.Text == "3")
+            {
+                ImageBrush nouveauBackground = new ImageBrush();
+
+                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/3_Back_Hollow.png"));
+
+                nouveauBackground.Stretch = Stretch.UniformToFill;
+
+                MainGrid.Background = nouveauBackground;
+
+
+            }
+
+            if (TB_Compte.Text == "1")
+            {
+                ImageBrush nouveauBackground = new ImageBrush();
+
+                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/4_Back_Hollow.png"));
+
+                nouveauBackground.Stretch = Stretch.UniformToFill;
+
+                MainGrid.Background = nouveauBackground;
+
+
+            }
+
+
+            if (TB_Compte.Text == "0")
+            {
+                ImageBrush nouveauBackground = new ImageBrush();
+
+                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/5_Back_Hollow.png"));
+
+                nouveauBackground.Stretch = Stretch.UniformToFill;
+
+                MainGrid.Background = nouveauBackground;
+
                 partieTerminee = true;
 
                 MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
             }
-        }
+        }   
+
 
         private void BTN_Compte_Click(object sender, RoutedEventArgs e)
         {

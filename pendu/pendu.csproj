@@ -101,7 +101,12 @@
     <Resource Include="Resource\BackGround\1_Back_Hollow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\List\Hollow_Mots.txt" />
+    <Resource Include="Resource\BackGround\3_Back_Hollow.png" />
+    <Resource Include="Resource\BackGround\4_Back_Hollow.png" />
+    <Resource Include="Resource\BackGround\5_Back_Hollow.png" />
+    <Content Include="Resource\List\Hollow_Mots.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
