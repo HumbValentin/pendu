@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
+using System.Windows.Threading;
 
 namespace pendu
 {
@@ -38,6 +39,19 @@ namespace pendu
         {
             InitializeComponent();
 
+
+            DispatcherTimer montimer;
+            montimer = new DispatcherTimer();
+            montimer.Interval = new TimeSpan(0, 0, 1);
+            montimer.Tick += new EventHandler(timer_tick);
+            montimer.Start();
+
+            void timer_tick(object sender, EventArgs e)
+            {
+                CommandManager.InvalidateRequerySuggested();
+            }
+
+
             string chemin = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resource", "List", "Hollow_Mots.txt");
 
             if (!File.Exists(chemin))
@@ -47,14 +61,12 @@ namespace pendu
                 return;
             }
 
-            while (motAleatoire.Lenght > 9)
-            {
-                            mots = File.ReadAllLines(chemin)
-                       .Where(m => !string.IsNullOrWhiteSpace(m))
-                       .Select(m => m.Trim().ToUpper())
-                       .ToList();
 
-            }
+            mots = File.ReadAllLines(chemin)
+               .Where(m => !string.IsNullOrWhiteSpace(m))
+               .Select(m => m.Trim().ToUpper())
+               .ToList();
+
 
 
             if (mots.Count == 0)
@@ -63,11 +75,16 @@ namespace pendu
                 Application.Current.Shutdown();
                 return;
             }
-
+            else
+            {
+                MessageBox.Show("Le Fichier contient " + mots.Count + "mots");
+            }
 
             motAleatoire = mots[random.Next(mots.Count)];
 
+
             lenght = motAleatoire.Length;
+
 
             for (int i = 0; i < lenght; i++)
             {
@@ -100,9 +117,25 @@ namespace pendu
             {
                 TB_Compte.Text = (Int32.Parse(TB_Compte.Text) - 1).ToString();
             }
+
+
             if (TB_Display.Text.Replace(" ", "") == motAleatoire)
             {
                 MessageBox.Show("Vous avez gagné !");
+
+                MediaPlayer playMamusique = new MediaPlayer();
+                var uri = new Uri(@"Resource/Sound/wow.mp3", UriKind.Relative);
+                playMamusique.Open(uri);
+                playMamusique.Play();
+
+                if (!File.Exists(@"Resource/Sound/wow.mp3"))
+                {
+                    MessageBox.Show("Le fichier son est introuvable !");
+                    Application.Current.Shutdown();
+                    return;
+                }
+
+
                 Application.Current.Shutdown();
 
                 partieTerminee = true;
@@ -155,6 +188,20 @@ namespace pendu
                 nouveauBackground.Stretch = Stretch.UniformToFill;
 
                 MainGrid.Background = nouveauBackground;
+
+
+                MediaPlayer playMamusique = new MediaPlayer();
+                var uri = new Uri(@"Resource/Sound/spongebob-fail.mp3",UriKind.Relative);
+                playMamusique.Open(uri);
+                playMamusique.Play();
+
+                if (!File.Exists(@"Resource/Sound/spongebob-fail.mp3"))
+                {
+                    MessageBox.Show("Le fichier son est introuvable !");
+                    Application.Current.Shutdown();
+                    return;
+                }
+
 
                 partieTerminee = true;
 

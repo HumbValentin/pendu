@@ -95,15 +95,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\BackGround\2_Back_Hollow.png" />
+    <Resource Include="Resource\BackGround\2_Back_Hollow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\BackGround\1_Back_Hollow.png" />
+    <Resource Include="Resource\BackGround\1_Back_Hollow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\BackGround\3_Back_Hollow.png" />
-    <Resource Include="Resource\BackGround\4_Back_Hollow.png" />
-    <Resource Include="Resource\BackGround\5_Back_Hollow.png" />
+    <Content Include="Resource\Sound\spongebob-fail.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\Sound\wow.mp3" />
+    <Resource Include="Resource\BackGround\3_Back_Hollow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\BackGround\4_Back_Hollow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\BackGround\5_Back_Hollow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Resource\List\Hollow_Mots.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
