@@ -122,7 +122,9 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="92"/>
             </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="1" Name="TB_Time" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" Text="00,00" />
 
         </Grid>
 
@@ -183,8 +185,8 @@
                 <Button Grid.Row="3" Grid.Column="5" Name="BTN_W" Content="W" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
                 <Button Grid.Row="3" Grid.Column="6" Name="BTN_X" Content="X" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
 
-                <Button Grid.Row="4" Grid.Column="4" Name="BTN_Y" Content="Y" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
-                <Button Grid.Row="4" Grid.Column="5" Name="BTN_Z" Content="Z" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="4" Grid.Column="3" Name="BTN_Y" Content="Y" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
+                <Button Grid.Row="4" Grid.Column="4" Name="BTN_Z" Content="Z" Style="{StaticResource GreenButtonStyle}" Click="BTN_Click"/>
             </Grid>
 
 
@@ -224,9 +226,10 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Column="1" Name="BTN_Compte" Content="Essai :" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" Click="BTN_Compte_Click" Margin="0,42,0,0" Grid.RowSpan="2"/>
+                <Button Grid.Column="1" Name="BTN_Compte" Content="Essai :" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" Margin="0,42,0,0" Grid.RowSpan="2"/>
                 <TextBox Grid.Column="0" Name="TB_Display" BorderBrush="Transparent" Foreground="LightGray" Background="Transparent" FontSize="40" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" IsReadOnly="True" Grid.RowSpan="2" Height="70" Margin="-51,0,0,0"/>
                 <TextBox Grid.Column="1" Name="TB_Compte" Text="8" BorderBrush="Transparent" Foreground="#0A636B" Background="Transparent" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" Margin="33,14,2,0" Grid.Row="1" Grid.ColumnSpan="3"/>
+                
 
 
 

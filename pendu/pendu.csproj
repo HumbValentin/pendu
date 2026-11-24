@@ -108,7 +108,9 @@
     <Content Include="Resource\Sound\spongebob-fail.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resource\Sound\wow.mp3" />
+    <Content Include="Resource\Sound\wow.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resource\BackGround\3_Back_Hollow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

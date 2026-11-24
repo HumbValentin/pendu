@@ -33,27 +33,20 @@ namespace pendu
         string motAleatoire;
         int lenght;
 
-
+        DispatcherTimer montimer;
+      
 
         public MainWindow()
         {
             InitializeComponent();
 
-
-            DispatcherTimer montimer;
+            // Initialize the timer
             montimer = new DispatcherTimer();
-            montimer.Interval = new TimeSpan(0, 0, 1);
-            montimer.Tick += new EventHandler(timer_tick);
-            montimer.Start();
 
-            void timer_tick(object sender, EventArgs e)
-            {
-                CommandManager.InvalidateRequerySuggested();
-            }
-
-
+            // Get the path to the Hollow_Mots.txt file
             string chemin = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resource", "List", "Hollow_Mots.txt");
 
+            // Check if the Hollow_Mots.txt file exists
             if (!File.Exists(chemin))
             {
                 MessageBox.Show("Le fichier Hollow_Mots.txt est introuvable !");
@@ -62,13 +55,32 @@ namespace pendu
             }
 
 
+            if (!File.Exists(@"Resource/Sound/wow.mp3"))
+            {
+                MessageBox.Show("Le fichier son win est introuvable !");
+                Application.Current.Shutdown();
+                return;
+            }
+
+            if (!File.Exists(@"Resource/Sound/spongebob-fail.mp3"))
+            {
+                MessageBox.Show("Le fichier son fail est introuvable !");
+                Application.Current.Shutdown();
+                return;
+            }
+
+
+
+
+
+            // Get the path to the Hollow_Mots.txt file
             mots = File.ReadAllLines(chemin)
                .Where(m => !string.IsNullOrWhiteSpace(m))
                .Select(m => m.Trim().ToUpper())
                .ToList();
 
 
-
+            // Check if the list of words is empty
             if (mots.Count == 0)
             {
                 MessageBox.Show("Le fichier ne contient aucun mot !");
@@ -80,19 +92,65 @@ namespace pendu
                 MessageBox.Show("Le Fichier contient " + mots.Count + "mots");
             }
 
+
+            // Start the game
+            StartGame();
+
+
+        }
+
+
+        // start game 
+
+        public void StartGame()
+        {
+            // Reset the game Background
+            ImageBrush nouveauBackground = new ImageBrush();
+            nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/1_Back_Hollow.png"));
+            nouveauBackground.Stretch = Stretch.UniformToFill;
+            MainGrid.Background = nouveauBackground;
+
+            // Reset the buttons
+            foreach (Button btn in MainGrid.Children.OfType<Button>())
+            {
+                btn.IsEnabled = true;
+            }
+
+            // Reset the display
+            TB_Compte.Text = "8";
+
+
+            // Reset the game state timer
+            montimer.Interval = new TimeSpan(0, 0, 1);
+            montimer.Tick += new EventHandler(timer_tick);
+            montimer.Start();
+
+
+            // Reset the game state
             motAleatoire = mots[random.Next(mots.Count)];
 
 
             lenght = motAleatoire.Length;
 
 
+            // Reset the display
+            TB_Display.Text = "";
+
+
+            // Display underscores for each letter in the word
             for (int i = 0; i < lenght; i++)
             {
                 TB_Display.Text += "_ ";
             }
         }
 
+        void timer_tick(object sender, EventArgs e)
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
 
+
+        // Event handler for button clicks
         private void BTN_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
@@ -100,6 +158,8 @@ namespace pendu
 
             btn.IsEnabled = false;
 
+
+            // Check if the letter is in the word , prog central
             if (motAleatoire.Contains(btnContent))
             {
                 if (partieTerminee)
@@ -113,113 +173,98 @@ namespace pendu
                     }
                 }
             }
+
+            // Nombre d'erreurs et met à jour l'affichage
             else
             {
                 TB_Compte.Text = (Int32.Parse(TB_Compte.Text) - 1).ToString();
+                UpdateBackground();
             }
 
 
+
+            // Check if the player has won
             if (TB_Display.Text.Replace(" ", "") == motAleatoire)
             {
                 MessageBox.Show("Vous avez gagné !");
 
+
+
+                // Play the winning sound
                 MediaPlayer playMamusique = new MediaPlayer();
                 var uri = new Uri(@"Resource/Sound/wow.mp3", UriKind.Relative);
                 playMamusique.Open(uri);
                 playMamusique.Play();
 
-                if (!File.Exists(@"Resource/Sound/wow.mp3"))
-                {
-                    MessageBox.Show("Le fichier son est introuvable !");
-                    Application.Current.Shutdown();
-                    return;
-                }
 
+                partieTerminee = true;
 
                 Application.Current.Shutdown();
 
-                partieTerminee = true;
             }
-            if (TB_Compte.Text == "5")
+        }
+
+
+        // Check if the player has lost 1 life
+        public void UpdateBackground()
+        {
+            ImageBrush nouveauBackground = new ImageBrush();
+
+
+            switch (TB_Compte.Text)
             {
-                ImageBrush nouveauBackground = new ImageBrush();
+                case "7":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/1_Back_Hollow.png"));
+                    break;
+                case "6":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/1_Back_Hollow.png"));
+                    break;
 
-                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/2_Back_Hollow.png"));
 
-                nouveauBackground.Stretch = Stretch.UniformToFill;
+                case "5":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/2_Back_Hollow.png"));
+                    break;
+                case "4":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/2_Back_Hollow.png"));
+                    break;
 
-                MainGrid.Background = nouveauBackground;
 
+                case "3":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/3_Back_Hollow.png"));
+                    break;
+                case "2":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/3_Back_Hollow.png"));
+                    break;
+
+
+                case "1":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/4_Back_Hollow.png"));
+                    break;
+                case "0":
+                    nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/5_Back_Hollow.png"));
+                    break;
             }
-
-            if (TB_Compte.Text == "3")
-            {
-                ImageBrush nouveauBackground = new ImageBrush();
-
-                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/3_Back_Hollow.png"));
-
-                nouveauBackground.Stretch = Stretch.UniformToFill;
-
-                MainGrid.Background = nouveauBackground;
-
-
-            }
-
-            if (TB_Compte.Text == "1")
-            {
-                ImageBrush nouveauBackground = new ImageBrush();
-
-                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/4_Back_Hollow.png"));
-
-                nouveauBackground.Stretch = Stretch.UniformToFill;
-
-                MainGrid.Background = nouveauBackground;
-
-
-            }
-
-
+            nouveauBackground.Stretch = Stretch.UniformToFill;
+            MainGrid.Background = nouveauBackground;
             if (TB_Compte.Text == "0")
             {
-                ImageBrush nouveauBackground = new ImageBrush();
-
-                nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/5_Back_Hollow.png"));
-
-                nouveauBackground.Stretch = Stretch.UniformToFill;
-
-                MainGrid.Background = nouveauBackground;
-
-
+                MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
+                // Play the losing sound
                 MediaPlayer playMamusique = new MediaPlayer();
-                var uri = new Uri(@"Resource/Sound/spongebob-fail.mp3",UriKind.Relative);
+                var uri = new Uri(@"Resource/Sound/spongebob-fail.mp3", UriKind.Relative);
                 playMamusique.Open(uri);
                 playMamusique.Play();
-
-                if (!File.Exists(@"Resource/Sound/spongebob-fail.mp3"))
-                {
-                    MessageBox.Show("Le fichier son est introuvable !");
-                    Application.Current.Shutdown();
-                    return;
-                }
-
-
                 partieTerminee = true;
-
-                MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
+                Application.Current.Shutdown();
             }
-        }   
 
 
-        private void BTN_Compte_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            String btnContent = btn.Content.ToString();
-            btn.IsEnabled = false;
-        }
+        } 
+
 
         private void BTN_Relaunch_Click(object sender, RoutedEventArgs e)
         {
-
+            StartGame();
         }
     }
 }
