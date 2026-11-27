@@ -1,0 +1,31 @@
+Projet de pendu – Univers Hollow Knight
+
+
+Objectif du projet :
+
+Développer un jeu de pendu inspiré de l'univers de *Hollow Knight*.
+
+Le but du jeu est de retrouver des mots en sélectionnant des lettres. Les mots proposés sont en lien avec l'univers du jeu. Le joueur doit réussir à trouver le mot dans un nombre limité d'essais.
+
+Retours :
+
+- Matt :  le chronomètre est stressant.
+- Yanis :   souhaite pouvoir relancer une partie et quitter le jeu. Il remarque également la présence d'un son de défaite, mais l'absence d'un son de victoire.
+- Maelyne :   remarque le manque d'animations.
+
+Corrections et améliorations :
+
+À la suite des retours des testeurs, plusieurs améliorations ont été apportées au jeu :
+
+- Le chronomètre, déjà implémenté dans le code mais inutilisé, a été identifié.
+- Les fonctionnalités permettant de relancer une partie et de quitter le jeu ont été ajoutées.
+- Il est désormais possible de relancer une partie après une victoire comme après une défaite.
+- L'image de fond change en fonction du nombre d'essais restants.
+- Un son de défaite ainsi qu'un son de victoire ont été ajoutés.
+- Les boutons changent de couleur en fonction de la validité de la lettre sélectionnée.
+- La lisibilité de l'interface a été améliorée.
+- Le code a été optimisé et rendu plus lisible.
+
+Problème persistant :
+
+La taille limite des mots reste inadaptée et nécessite encore des ajustements afin d'améliorer l'expérience de jeu.
