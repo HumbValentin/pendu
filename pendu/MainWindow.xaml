@@ -19,11 +19,11 @@
 
         <Grid.Resources>
             <Style x:Key="GreenButtonStyle" TargetType="Button">
-                <Setter Property="Background" Value="#0A636B"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#0c2626"/>
+                <Setter Property="Foreground" Value="LightGreen"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="BorderBrush" Value="#81A198"/>
+                <Setter Property="BorderBrush" Value="DarkCyan"/>
                 <Setter Property="BorderThickness" Value="4"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
@@ -40,16 +40,16 @@
 
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#3CB371"/>
+                                    <Setter Property="Background" Value="DarkGreen"/>
                                 </Trigger>
 
                                 <Trigger Property="IsPressed" Value="True">
                                     <Setter Property="Background" Value="#1E5631"/>
                                 </Trigger>
 
-                                <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="Background" Value="#808080"/>
-                                    <Setter Property="Foreground" Value="#D3D3D3"/>
+                                <Trigger Property="IsEnabled" Value="False" >
+                                    <Setter Property="Background" Value="DarkRed"/>
+                                    <Setter Property="Foreground" Value="Black"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -57,12 +57,12 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="ValidStyle" TargetType="Button">
-                <Setter Property="Background" Value="#D7D7D9"/>
+            <Style x:Key="LeaveStyle" TargetType="Button">
+                <Setter Property="Background" Value="DarkRed"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="BorderBrush" Value="#81A198"/>
+                <Setter Property="BorderBrush" Value="DarkOrange"/>
                 <Setter Property="BorderThickness" Value="4"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
@@ -134,7 +134,7 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
-            <Grid>
+            <Grid Name="Grd_Keypad">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -200,6 +200,7 @@
             </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="192"/>
                     <ColumnDefinition Width="118"/>
@@ -207,10 +208,11 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="52"/>
+                    <RowDefinition Height="43"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Column="1" Name="BTN_Relaunch" Content="ReLaunch" Style="{StaticResource GreenButtonStyle}" Click="BTN_Relaunch_Click" Margin="0,20,0,0" Grid.RowSpan="2"/>
+                <Button Grid.Column="2" Name="BTN_Relaunch" Content="ReLaunch" Style="{StaticResource GreenButtonStyle}" Click="BTN_Relaunch_Click" Margin="0,20,0,0" Grid.RowSpan="2"/>
+                <Button Grid.Column="0" Name="BTN_Leave" Content="Leave" Style="{StaticResource LeaveStyle}" Click="BTN_Leave_Click" Margin="0,20,0,0" Grid.RowSpan="2"/>
 
             </Grid>
 

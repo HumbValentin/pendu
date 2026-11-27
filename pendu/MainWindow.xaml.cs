@@ -104,16 +104,18 @@ namespace pendu
 
         public void StartGame()
         {
-            // Reset the game Background
+
+            //Reset the game Background
             ImageBrush nouveauBackground = new ImageBrush();
             nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/1_Back_Hollow.png"));
             nouveauBackground.Stretch = Stretch.UniformToFill;
             MainGrid.Background = nouveauBackground;
 
             // Reset the buttons
-            foreach (Button btn in MainGrid.Children.OfType<Button>())
+            foreach (Button btn in Grd_Keypad.Children.OfType<Button>())
             {
                 btn.IsEnabled = true;
+                
             }
 
             // Reset the display
@@ -153,10 +155,11 @@ namespace pendu
         // Event handler for button clicks
         private void BTN_Click(object sender, RoutedEventArgs e)
         {
+            // Button is not enable
             Button btn = sender as Button;
             String btnContent = btn.Content.ToString();
-
             btn.IsEnabled = false;
+            btn.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
 
 
             // Check if the letter is in the word , prog central
@@ -166,10 +169,15 @@ namespace pendu
                     return;
                 for (int i = 0; i < lenght; i++)
                 {
+
+                    // Button is correct
                     if (motAleatoire[i].ToString() == btnContent)
                     {
                         TB_Display.Text = TB_Display.Text.Remove(i * 2, 1);
                         TB_Display.Text = TB_Display.Text.Insert(i * 2, btnContent);
+
+                        //Color Button correct
+                        btn.Background = new SolidColorBrush(Color.FromRgb(130, 50, 190));
                     }
                 }
             }
@@ -186,9 +194,6 @@ namespace pendu
             // Check if the player has won
             if (TB_Display.Text.Replace(" ", "") == motAleatoire)
             {
-                MessageBox.Show("Vous avez gagné !");
-
-
 
                 // Play the winning sound
                 MediaPlayer playMamusique = new MediaPlayer();
@@ -196,9 +201,9 @@ namespace pendu
                 playMamusique.Open(uri);
                 playMamusique.Play();
 
+                MessageBox.Show("Vous avez gagné ! voulez vous rejouer?");
 
                 partieTerminee = true;
-
                 Application.Current.Shutdown();
 
             }
@@ -242,21 +247,21 @@ namespace pendu
                     break;
                 case "0":
                     nouveauBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resource/BackGround/5_Back_Hollow.png"));
+                    nouveauBackground.Stretch = Stretch.UniformToFill;
+                    MainGrid.Background = nouveauBackground;
+
+                    // Play the losing sound
+                    MediaPlayer playMamusique = new MediaPlayer();
+                    var uri = new Uri(@"Resource/Sound/spongebob-fail.mp3", UriKind.Relative);
+                    playMamusique.Open(uri);
+                    playMamusique.Play();
+                    partieTerminee = true;
+                    MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
+
                     break;
             }
             nouveauBackground.Stretch = Stretch.UniformToFill;
             MainGrid.Background = nouveauBackground;
-            if (TB_Compte.Text == "0")
-            {
-                MessageBox.Show("Vous avez perdu ! Le mot était : " + motAleatoire);
-                // Play the losing sound
-                MediaPlayer playMamusique = new MediaPlayer();
-                var uri = new Uri(@"Resource/Sound/spongebob-fail.mp3", UriKind.Relative);
-                playMamusique.Open(uri);
-                playMamusique.Play();
-                partieTerminee = true;
-                Application.Current.Shutdown();
-            }
 
 
         } 
@@ -264,7 +269,19 @@ namespace pendu
 
         private void BTN_Relaunch_Click(object sender, RoutedEventArgs e)
         {
+            // Color button reset
+            foreach (Button btn in Grd_Keypad.Children.OfType<Button>())
+            {
+                btn.ClearValue(Button.BackgroundProperty);
+                btn.ClearValue(Button.ForegroundProperty);
+            }
+                
             StartGame();
+        }
+
+        private void BTN_Leave_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
